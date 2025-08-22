@@ -1,52 +1,68 @@
 # IoT-Enabled Greenhouse Monitoring and Automation System Using Dual ESP32 Controllers
 
-## 📌 Project Overview
-This project is developed as part of a college submission by **Sairaj Kalal** and **Mohd Ismayeel Shaikh**.  
-It focuses on building an **IoT-based greenhouse monitoring and automation system** using **dual ESP32 controllers** for real-time sensing and control.
 
-The system allows efficient monitoring of temperature, humidity, soil moisture, and light intensity inside a greenhouse while automating irrigation and ventilation processes.
+## 📌 Project Overview
+This project is developed as part of a college submission by **Sairaj Kalal** and **Mohd Ismayeel Shaikh**.
+It implements an **IoT greenhouse monitoring and automation system** using **two ESP32 controllers**—one for sensing and publishing data, and one for display/control.
+
 
 ---
+
 
 ## 🎯 Objectives
-- To monitor critical greenhouse parameters in real-time.
-- To automate irrigation and ventilation using ESP32 controllers.
-- To enable wireless IoT connectivity for remote monitoring.
-- To improve plant growth efficiency and reduce manual intervention.
+- Monitor temperature, humidity, and soil moisture in real‑time.
+- Automate irrigation/ventilation based on thresholds.
+- Enable remote monitoring via MQTT/IoT dashboard.
+
 
 ---
 
-## 🛠️ Hardware & Software Used
-- **ESP32 Controllers** (2 units – one for sensing, one for automation)
-- DHT11/DHT22 Sensor (Temperature & Humidity)
-- Soil Moisture Sensor
-- Light Sensor (LDR)
-- Relays & Actuators (for fan, water pump, etc.)
-- Blynk / MQTT / ThingSpeak (for IoT monitoring)
-- Arduino IDE / PlatformIO (for coding)
+
+## 🛠️ Hardware & Software
+- 2× **ESP32**
+- **DHT22** (Temp & Humidity)
+- **Soil Moisture** sensor (analog)
+- **LCD 16×2 I2C** (0x27 address typical)
+- **Relay / Pump / Fan** (or LED for demo)
+- **MQTT broker** (e.g., `test.mosquitto.org`)
+- **Arduino IDE** + libraries: PubSubClient, DHT sensor, LiquidCrystal I2C
+
 
 ---
 
-## ⚙️ System Working
-1. One ESP32 collects data from sensors (temperature, humidity, soil moisture, light).  
-2. Data is transmitted wirelessly to another ESP32 responsible for automation.  
-3. Automation ESP32 controls irrigation pumps and fans based on sensor thresholds.  
-4. IoT dashboard (Blynk/ThingSpeak/MQTT) allows remote monitoring and manual override.  
+
+## ⚙️ Architecture (2‑Node)
+1. **ESP32‑A (Sensor Node)** reads DHT22 & soil sensor and publishes `temp,soil` to topic `greenhouse/data`.
+2. **ESP32‑B (Automation/Display Node)** subscribes to `greenhouse/data`, shows values on LCD, and toggles pump/fan via relay.
+
 
 ---
 
-## 👨‍💻 Team Members
-- **Sairaj Kalal**  
+
+## 📂 Repo Map
+- `code/esp32-sensor.ino` – publishes sensor data (ESP32‑A)
+- `code/esp32-automation.ino` – subscribes & controls pump/LCD (ESP32‑B)
+- `docs/` – report or notes (optional)
+- `images/` – circuit or screenshots (optional)
+
+
+---
+
+
+## 👨‍💻 Authors
+- **Sairaj Kalal**
 - **Mohd Ismayeel Shaikh**
 
----
-
-## 📂 Repository Contents
-- `/code` → Arduino/ESP32 source code  
-- `/docs` → Documentation and reports  
-- `/images` → Circuit diagrams, screenshots (if available)
 
 ---
+
+
+## 🔒 Note on Secrets
+Replace Wi‑Fi SSID/password placeholders in the `.ino` files before flashing. **Do not commit real passwords** to public repos.
+
+
+---
+
 
 ## 📜 License
-This project is open-source under the MIT License.
+This project is open‑source under the **MIT License** (see `LICENSE`).
