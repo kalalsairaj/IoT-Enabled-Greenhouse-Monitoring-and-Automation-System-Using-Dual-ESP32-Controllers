@@ -5,7 +5,7 @@
 
 // ==== Wi-Fi Settings (replace before use) ====
 const char* ssid = "V2029";
-const char* password = "YOUR_WIFI_PASSWORD";
+const char* password = "15092004";
 
 
 // ==== MQTT Settings ====
