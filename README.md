@@ -1,7 +1,7 @@
 # IoT-Enabled Greenhouse Monitoring and Automation System Using Dual ESP32 Controllers
 
 ## 📌 Project Overview
-This project is developed as part of a college submission by **Sairaj Kalal** and **Mod Ismayeel Shaikh**.  
+This project is developed as part of a college submission by **Sairaj Kalal** and **Mohd Ismayeel Shaikh**.  
 It focuses on building an **IoT-based greenhouse monitoring and automation system** using **dual ESP32 controllers** for real-time sensing and control.
 
 The system allows efficient monitoring of temperature, humidity, soil moisture, and light intensity inside a greenhouse while automating irrigation and ventilation processes.
