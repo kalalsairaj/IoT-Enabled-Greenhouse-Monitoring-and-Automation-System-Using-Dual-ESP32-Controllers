@@ -4,7 +4,7 @@
 
 
 // ==== Wi-Fi Settings (replace before use) ====
-const char* ssid = "YOUR_WIFI_SSID";
+const char* ssid = "V2029";
 const char* password = "YOUR_WIFI_PASSWORD";
 
 
